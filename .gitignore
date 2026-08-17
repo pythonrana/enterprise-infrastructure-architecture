@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS folder metadata
+._*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Editor files
+*.swp
+*.swo
+
+# IDE settings
+.vscode/
+.idea/
