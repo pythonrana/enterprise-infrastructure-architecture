@@ -1,0 +1,24 @@
+network:
+
+  asn:
+    spine: 65000
+    leaf: 65100
+
+  loopbacks:
+    spine:
+      spine-01: 10.255.0.1/32
+      spine-02: 10.255.0.2/32
+
+    leaf:
+      leaf-01: 10.255.0.11/32
+      leaf-02: 10.255.0.12/32
+
+  vlans:
+    - id: 10
+      name: MANAGEMENT
+
+    - id: 20
+      name: SERVERS
+
+    - id: 30
+      name: APPLICATION

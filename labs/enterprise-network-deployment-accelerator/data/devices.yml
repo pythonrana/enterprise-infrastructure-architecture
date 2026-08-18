@@ -1,0 +1,25 @@
+devices:
+
+  - hostname: spine-01
+    role: spine
+    platform: cisco
+    model: nexus
+    management_ip: 192.0.2.11
+
+  - hostname: spine-02
+    role: spine
+    platform: cisco
+    model: nexus
+    management_ip: 192.0.2.12
+
+  - hostname: leaf-01
+    role: leaf
+    platform: cisco
+    model: nexus
+    management_ip: 192.0.2.21
+
+  - hostname: leaf-02
+    role: leaf
+    platform: cisco
+    model: nexus
+    management_ip: 192.0.2.22
