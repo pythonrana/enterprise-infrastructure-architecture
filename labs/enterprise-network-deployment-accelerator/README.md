@@ -1,51 +1,30 @@
 # Enterprise Network Deployment Accelerator
 
-## Problem
+A reference implementation for reducing enterprise network deployment effort through standardized architecture, source-of-truth data, configuration generation, and pre-deployment validation.
 
-Enterprise network infrastructure deployment can involve multiple manual
-steps across architecture, configuration, validation, change management,
-testing, and deployment.
+## Overview
 
-This project explores how automation and standardized architecture can
-reduce deployment time, improve consistency, and reduce operational risk.
+Enterprise network deployments often involve repetitive manual activities across:
 
-## Objectives
+- Device inventory
+- Configuration development
+- Validation
+- Change preparation
+- Testing
+- Deployment
 
-- Identify major sources of deployment delay
-- Define a standardized deployment workflow
-- Develop reusable configuration models
-- Automate configuration generation
-- Validate configurations before deployment
-- Measure potential time and effort reduction
+This project explores how infrastructure-as-code principles and reusable automation patterns can improve deployment consistency, reduce manual effort, and lower operational risk.
 
-## Architecture
+The current implementation demonstrates a simple workflow:
 
-Coming soon.
-
-## Automation
-
-Coming soon.
-
-## Testing
-
-Coming soon.
-
-## Results
-
-Coming soon.
-
-## Key Questions
-
-- Where is deployment time being spent?
-- Which activities can be standardized?
-- Which activities can be automated?
-- What can be validated before deployment?
-- What resources can be reused?
-- What skills are required?
-- How does automation affect operational risk?
-- How much deployment time can realistically be reduced?
-
-## Disclaimer
-
-This project uses fictional infrastructure, configurations, and scenarios
-for educational and professional portfolio purposes.
+```text
+Source of Truth
+      |
+      v
+Inventory Validation
+      |
+      v
+Jinja2 Configuration Templates
+      |
+      v
+Generated Device Configurations
