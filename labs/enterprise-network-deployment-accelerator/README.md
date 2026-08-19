@@ -28,3 +28,46 @@ Jinja2 Configuration Templates
       |
       v
 Generated Device Configurations
+
+## Current Architecture
+
+The current implementation follows a source-of-truth driven automation model.
+
+```text
+                 NETWORK INTENT
+                       |
+                       v
+              +------------------+
+              |  Source of Truth  |
+              |   devices.yml     |
+              |   network.yml     |
+              +--------+---------+
+                       |
+                       v
+              +------------------+
+              |    Validation     |
+              |      Python       |
+              |                  |
+              | Inventory checks  |
+              | Role validation   |
+              | IP validation     |
+              +--------+---------+
+                       |
+                VALIDATION PASSED
+                       |
+                       v
+              +------------------+
+              | Configuration     |
+              |     Engine        |
+              |     Jinja2        |
+              +--------+---------+
+                       |
+                       v
+              +------------------+
+              | Generated Configs |
+              |                  |
+              | spine-01.cfg      |
+              | spine-02.cfg      |
+              | leaf-01.cfg       |
+              | leaf-02.cfg       |
+              +------------------+
