@@ -1,0 +1,28 @@
+!
+! Generated configuration
+! Hostname: {{ device.hostname }}
+! Role: {{ device.role }}
+!
+
+hostname {{ device.hostname }}
+
+!
+! Management
+!
+interface Loopback0
+ description Management Loopback
+ ip address {{ device.management_ip }}
+
+!
+! Device Role
+!
+! Role: {{ device.role }}
+
+!
+! Platform
+!
+! Platform: {{ device.platform }}
+! Model: {{ device.model }}
+
+!
+end

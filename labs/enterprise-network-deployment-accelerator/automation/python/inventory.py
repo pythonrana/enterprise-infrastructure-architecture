@@ -1,4 +1,7 @@
+import os
+
 import yaml
+from jinja2 import Environment, FileSystemLoader
 
 
 VALID_ROLES = {"spine", "leaf"}
@@ -48,17 +51,29 @@ def validate_inventory(devices):
     return errors
 
 
-def display_inventory(devices):
-    print(f"Total devices: {len(devices)}")
-    print()
+def generate_configurations(devices):
+    template_environment = Environment(
+	loader=FileSystemLoader("../templates")
+    )
+
+    template = template_environment.get_template("device_config.j2")
+
+    output_directory = "../configs"
+
+    os.makedirs(output_directory, exist_ok=True)
 
     for device in devices:
-        print(
-            f"{device['hostname']:10} "
-            f"{device['role']:8} "
-            f"{device['platform']:8} "
-            f"{device['management_ip']}"
+        configuration = template.render(device=device)
+
+        filename = os.path.join(
+            output_directory,
+            f"{device['hostname']}.cfg"
         )
+
+        with open(filename, "w") as file:
+            file.write(configuration)
+
+        print(f"Generated: {filename}")
 
 
 def main():
@@ -66,9 +81,9 @@ def main():
 
     devices = inventory.get("devices", [])
 
-    display_inventory(devices)
-
+    print(f"Total devices: {len(devices)}")
     print()
+
     print("Validating inventory...")
 
     errors = validate_inventory(devices)
@@ -80,8 +95,18 @@ def main():
         for error in errors:
             print(f"- {error}")
 
-    else:
-        print("VALIDATION PASSED")
+        return
+
+    print("VALIDATION PASSED")
+    print()
+
+    print("Generating configurations...")
+    print()
+
+    generate_configurations(devices)
+
+    print()
+    print("Configuration generation complete.")
 
 
 if __name__ == "__main__":
