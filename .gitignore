@@ -20,3 +20,7 @@
 
 # Python virtual environment
 .venv/
+# Python
+__pycache__/
+*.py[cod]
+.venv/

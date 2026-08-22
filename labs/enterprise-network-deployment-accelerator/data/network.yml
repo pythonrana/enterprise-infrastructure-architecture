@@ -22,3 +22,29 @@ network:
 
     - id: 30
       name: APPLICATION
+
+  links:
+
+    - id: spine01-leaf01
+      source: spine-01
+      source_interface: Ethernet1/1
+      destination: leaf-01
+      destination_interface: Ethernet1/1
+
+    - id: spine01-leaf02
+      source: spine-01
+      source_interface: Ethernet1/2
+      destination: leaf-02
+      destination_interface: Ethernet1/1
+
+    - id: spine02-leaf01
+      source: spine-02
+      source_interface: Ethernet1/1
+      destination: leaf-01
+      destination_interface: Ethernet1/2
+
+    - id: spine02-leaf02
+      source: spine-02
+      source_interface: Ethernet1/2
+      destination: leaf-02
+      destination_interface: Ethernet1/2
