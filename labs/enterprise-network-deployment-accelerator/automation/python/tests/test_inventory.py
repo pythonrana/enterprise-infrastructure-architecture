@@ -1,16 +1,12 @@
 import pytest
 from jinja2 import Environment, FileSystemLoader
 
-from inventory import (
+from validators import (
     validate_inventory,
     validate_topology,
     validate_generated_configuration,
 )
-from inventory import (
-    validate_inventory,
-    validate_topology,
-    validate_generated_configuration,
-)
+
 @pytest.fixture
 def sample_devices():
     return [
