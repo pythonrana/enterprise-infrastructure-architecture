@@ -1,4 +1,7 @@
 import pytest
+
+from metrics import calculate_improvement
+
 from jinja2 import Environment, FileSystemLoader
 
 from validators import (
@@ -262,3 +265,19 @@ def test_full_configuration_workflow(sample_devices):
         )
 
         assert errors == []
+def test_calculate_improvement():
+    metrics = {
+        "deployment_metrics": {
+            "baseline": {
+                "duration_minutes": 360
+            },
+            "automated": {
+                "duration_minutes": 70
+            }
+        }
+    }
+
+    time_saved, percentage_reduction = calculate_improvement(metrics)
+
+    assert time_saved == 290
+    assert round(percentage_reduction, 2) == 80.56

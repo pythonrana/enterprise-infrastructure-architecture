@@ -1,0 +1,19 @@
+deployment_metrics:
+
+  baseline:
+    name: Manual deployment
+    duration_minutes: 360
+
+  automated:
+    name: Automated deployment workflow
+    duration_minutes: 70
+
+  improvement:
+    time_saved_minutes: 290
+    percentage_reduction: 80.56
+
+  assumptions:
+    - Metrics represent a fictional four-device deployment.
+    - Values are illustrative for portfolio purposes.
+    - Actual savings depend on environment complexity,
+      change controls, testing requirements, and deployment tooling.
